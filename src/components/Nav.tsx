@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LuAlignRight } from "react-icons/lu";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,25 +8,25 @@ const NavLinks = () => {
   return (
     <>
       <Link
-        className="hover:text-secondary-color transform transition duration-300 hover:scale-110"
+        className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="aboutMe"
       >
         About Me
       </Link>
       <Link
-        className="hover:text-secondary-color transform transition duration-300 hover:scale-110"
+        className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="projects"
       >
         Projects
       </Link>
       <Link
-        className="hover:text-secondary-color transform transition duration-300 hover:scale-110"
+        className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="abilities"
       >
         Abilities
       </Link>
       <Link
-        className="hover:text-secondary-color transform transition duration-300 hover:scale-110"
+        className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="contactMe"
       >
         Contact Me
@@ -53,6 +53,13 @@ const variants = {
 };
 
 const Nav = () => {
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setIsOpen(false),
+    );
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
@@ -74,7 +81,7 @@ const Nav = () => {
           >
             {isOpen ? (
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <LuAlignRight />
+                <LuAlignRight className="text-white" />
               </motion.div>
             ) : (
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -87,7 +94,7 @@ const Nav = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 top-0 flex h-full w-full flex-col items-center justify-center gap-4 pb-2 text-white md:hidden"
+            className="fixed left-0 top-0 flex h-full w-full flex-col items-center justify-center gap-4 pb-2 text-2xl text-white md:hidden"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }} // Fondo semi-transparente para que el contenido principal sea visible pero oscurecido
             initial="closed"
             animate="open"

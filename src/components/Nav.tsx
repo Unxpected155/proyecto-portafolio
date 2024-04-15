@@ -10,24 +10,39 @@ const NavLinks = () => {
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="aboutMe"
+        spy={true}
+        smooth={true}
+        duration={500}
       >
         About Me
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="projects"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
       >
         Projects
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="abilities"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
       >
         Abilities
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
         to="contactMe"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
       >
         Contact Me
       </Link>

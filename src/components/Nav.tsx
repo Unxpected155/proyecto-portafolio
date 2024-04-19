@@ -12,6 +12,7 @@ const NavLinks = () => {
         to="aboutMe"
         spy={true}
         smooth={true}
+        offset={-50}
         duration={500}
       >
         About Me
@@ -68,14 +69,14 @@ const variants = {
 };
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setIsOpen(false),
     );
   }, []);
-
-  const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
     setIsOpen(!isOpen);

@@ -29,7 +29,7 @@ const ScrollToTop: React.FC<ScrollToTopProps> = ({ color = "#F1C40F" }) => {
 
   return (
     <motion.div
-      className="fixed bottom-8 right-8 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-yellow-400 shadow-md"
+      className="fixed bottom-4 right-6 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-yellow-400 shadow-md md:bottom-8 md:right-8"
       style={{ background: color }}
       onClick={scrollToTop}
       initial={{ opacity: 0, scale: 0 }}

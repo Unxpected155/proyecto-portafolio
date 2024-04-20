@@ -1,83 +1,115 @@
-import { motion } from "framer-motion";
-import { Code } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  repository: string;
+  image: string;
+}
+
+const projects: Project[] = [
   {
     title: "Gamehub",
     description:
-      "This website was developed using the React framework, Chakra UI for CSS styling, and TypeScript. It integrated an API called RAWG API, which provides a list of games along with their categories and scores. The application is capable of displaying a list of video games along with their ratings, which can be sorted by categories and filtered by platform, genre, relevance, popularity, name, day added, and publication date. This page was deployed on Vercel.",
+      "This website integrates the RAWG API to provide a list of games with categories and scores. Deployed on Vercel.",
     repository: "https://github.com/Unxpected155/gameHub",
-    deployLink: "",
     image: `src/assets/projects/Gamehub.webp`,
   },
   {
     title: "QuitSmoke",
     description:
-      "This project was created to help people quit smoking. The web application was developed using Spring Boot, Spring Security, AWS EC2, HTML/CSS, Angular, Netlify, C++, JWT Authentication, and Zapier. It features a user authentication system using Spring Security and JWT Authentication technologies. Additionally, it includes a chatbot that provides personalized advice related solely to quitting smoking. The integration of a wearable device programmed in C++ is also incorporated to monitor air quality and record related data.",
+      "A web app to help people quit smoking, featuring Spring Boot, Spring Security, Angular, and more. Includes a chatbot and wearable device integration.",
     repository: "https://github.com/Unxpected155/QuitSmoke-Backend",
-    deployLink: "",
     image: "src/assets/projects/QuitSmoke.webp",
   },
   {
     title: "Todo List",
     description:
-      "This project was created using TypeScript, SvelteKit, MongoDB, and HTML/CSS technologies and deployed on Firebase. The application allows users to create and manage tasks through a simple interface. Users must register through a backend API for user authentication, with each user being added to the database upon registration.",
+      "A task management app built with TypeScript, SvelteKit, and MongoDB. Deployed on Firebase.",
     repository: "https://github.com/fbnmlns/proyecto-componentes",
-    deployLink: "",
     image: "src/assets/projects/TodoList.webp",
   },
   {
     title: "Calculator",
     description:
-      "A calculator was developed using HTML/CSS and JavaScript. It enables users to perform basic operations such as addition, subtraction, multiplication, and division, and it also accepts decimal numbers. The calculator features a simple and pleasant interface.",
+      "A simple calculator developed using HTML/CSS and JavaScript, supporting basic operations and decimal numbers.",
     repository: "https://github.com/Unxpected155/calculator",
-    deployLink: "",
     image: "src/assets/projects/Calculator.webp",
   },
   {
     title: "",
     description: "",
     repository: "",
-    deployLink: "",
     image: "src/assets/sapitoIcon.png",
   },
 ];
 
 const Projects = () => {
+  const [showFullDescription, setShowFullDescription] = useState<boolean[]>([]);
+
+  const toggleDescription = (index: number) => {
+    const newShowState = [...showFullDescription];
+    newShowState[index] = !newShowState[index];
+    setShowFullDescription(newShowState);
+  };
+
   return (
-    <div className="container flex flex-wrap justify-between gap-y-16 font-body">
-      {projects.map((project, index) => {
-        return (
-          <div
-            className={`flex h-full w-full flex-col items-center justify-between gap-10 rounded-lg bg-primary-color/85 p-5  ${index % 2 === 0 ? "md:flex-row-reverse" : "flex-col md:flex-row"}`}
-            key={project.title}
-          >
-            <img
-              src={project.image}
-              className="h-64 w-full rounded-lg md:h-96 md:w-1/2 md:max-w-[35rem]"
-            />
-            <div
-              className={`flex flex-col items-center justify-center gap-8 border-terciary-color md:w-1/2 ${index % 2 === 0 ? "md:border-r-2 md:border-opacity-50 md:pr-2" : "md:border-l-2 md:border-opacity-50 md:pl-2"}`}
-            >
-              <p className="text-center font-title text-5xl font-bold text-terciary-color md:text-5xl">
-                {project.title}
-              </p>
-              <p className={`text-2xl text-[#f3f3f3]`}>{project.description}</p>
-              <div className="flex justify-center gap-16">
-                <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  href={project.repository}
-                  target="_blank"
-                  className="flex w-40 items-center justify-center gap-2 rounded-3xl bg-secondary-color p-2 text-center font-semibold hover:bg-opacity-85 focus:outline-none focus:ring focus:ring-secondary-color md:h-20 md:w-60 md:text-xl"
-                >
-                  <Code /> Repository
-                </motion.a>
+    <div className="flex flex-col items-center justify-center gap-4">
+      <p className="font-title text-4xl font-bold text-white">Projects</p>
+      <Carousel className="w-full max-w-[13rem] md:max-w-lg">
+        <CarouselContent>
+          {projects.map((project, index) => (
+            <CarouselItem key={index}>
+              <div className="p-1">
+                <Card className="border-none bg-secondary-color">
+                  <CardContent className="flex aspect-square items-center justify-center p-6 font-body">
+                    <div className="flex flex-col gap-4">
+                      <img
+                        src={project.image}
+                        alt={project.title + " image"}
+                        className="rounded-lg"
+                      />
+                      <div className="flex flex-col gap-6">
+                        <h2 className="font-title text-2xl font-semibold md:text-3xl">
+                          {project.title}
+                        </h2>
+                        <p className="text-md md:text-lg">
+                          {showFullDescription[index]
+                            ? project.description
+                            : project.description.slice(0, 80)}
+                          {project.description.length > 80 &&
+                            !showFullDescription[index] &&
+                            "..."}
+                        </p>
+                        {project.description.length > 80 && (
+                          <button
+                            onClick={() => toggleDescription(index)}
+                            className="text-blue-500 underline"
+                          >
+                            {showFullDescription[index]
+                              ? "Show less"
+                              : "Show more"}
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </div>
-          </div>
-        );
-      })}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="size-12" />
+        <CarouselNext className="size-12" />
+      </Carousel>
     </div>
   );
 };

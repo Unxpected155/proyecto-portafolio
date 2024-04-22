@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -7,6 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Code } from "lucide-react";
+import { motion } from "framer-motion";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Project {
   title: string;
@@ -54,6 +57,21 @@ const projects: Project[] = [
 
 const Projects = () => {
   const [showFullDescription, setShowFullDescription] = useState<boolean[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 960);
+    };
+
+    // Llama a la función de manejo cuando el tamaño de la ventana cambia
+    window.addEventListener("resize", handleResize);
+
+    // Limpia el evento de escucha cuando el componente se desmonta
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleDescription = (index: number) => {
     const newShowState = [...showFullDescription];
@@ -64,12 +82,19 @@ const Projects = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <p className="font-title text-4xl font-bold text-white">Projects</p>
-      <Carousel className="w-full max-w-[13rem] md:max-w-lg">
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
+        className="w-full max-w-[13rem] md:max-w-lg"
+      >
         <CarouselContent>
           {projects.map((project, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <Card className="border-none bg-secondary-color">
+                <Card className="max-h-[35rem] border-none bg-secondary-color ">
                   <CardContent className="flex aspect-square items-center justify-center p-6 font-body">
                     <div className="flex flex-col gap-4">
                       <img
@@ -100,6 +125,18 @@ const Projects = () => {
                           </button>
                         )}
                       </div>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 10,
+                        }}
+                        className="flex max-w-[50%] justify-center gap-5 self-center rounded-full bg-terciary-color p-4 text-white"
+                      >
+                        <Code />
+                        {isMobile ? "" : "Repository"}
+                      </motion.button>
                     </div>
                   </CardContent>
                 </Card>

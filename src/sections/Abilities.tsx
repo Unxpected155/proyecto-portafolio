@@ -103,14 +103,14 @@ const Abilities = () => {
           align: "start",
           loop: true,
         }}
-        className="w-full max-w-[18rem] md:max-w-xl"
+        className="w-full max-w-[18rem] md:max-w-xl lg:max-w-4xl"
       >
         <CarouselContent>
           {technologies.map((tech, index) => (
             <CarouselItem key={tech.title} className="md:basis-1/3 ">
               <div className="p-1">
                 <Card
-                  className={`flex h-32 items-center justify-center p-4`}
+                  className={`flex h-44 items-center justify-center p-4`}
                   style={{
                     boxShadow:
                       hoveredIndex === index

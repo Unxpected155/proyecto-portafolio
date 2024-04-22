@@ -32,10 +32,9 @@ const NavLinks = () => {
         to="abilities"
         spy={true}
         smooth={true}
-        offset={50}
         duration={500}
       >
-        Abilities
+        Technologies
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"

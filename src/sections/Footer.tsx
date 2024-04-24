@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, MessageCircleMore } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -37,6 +37,15 @@ const Footer = () => {
           className="flex justify-center rounded-full bg-secondary-color px-4 py-2 hover:bg-opacity-85 focus:outline-none focus:ring focus:ring-secondary-color"
         >
           <Github className="size-8 md:size-10" color="black" />
+        </motion.a>
+        <motion.a
+          href="https://wa.me/50672052488"
+          target="_blank"
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className="flex justify-center rounded-full bg-secondary-color px-4 py-2 hover:bg-opacity-85 focus:outline-none focus:ring focus:ring-secondary-color"
+        >
+          <MessageCircleMore className="size-8 md:size-10" color="black" />
         </motion.a>
       </div>
     </div>

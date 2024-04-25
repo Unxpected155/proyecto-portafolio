@@ -23,27 +23,27 @@ const projects: Project[] = [
     title: "Gamehub",
 
     repository: "https://github.com/Unxpected155/gameHub",
-    image: `src/assets/projects/Gamehub.webp`,
+    image: `public/projects/Gamehub.webp`,
   },
   {
     title: "QuitSmoke",
     repository: "https://github.com/Unxpected155/QuitSmoke-Backend",
-    image: "src/assets/projects/QuitSmoke.webp",
+    image: "public/projects/QuitSmoke.webp",
   },
   {
     title: "TodoList",
     repository: "https://github.com/fbnmlns/proyecto-componentes",
-    image: "src/assets/projects/TodoList.webp",
+    image: "public/projects/TodoList.webp",
   },
   {
     title: "Calculator",
     repository: "https://github.com/Unxpected155/calculator",
-    image: "src/assets/projects/Calculator.webp",
+    image: "public/projects/Calculator.webp",
   },
   {
     title: "TicTacToe",
     repository: "https://github.com/Cledersonbc/tic-tac-toe-minimax",
-    image: "src/assets/projects/tictactoe.webp",
+    image: "public/projects/tictactoe.webp",
   },
 ];
 

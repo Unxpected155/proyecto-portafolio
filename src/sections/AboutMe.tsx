@@ -25,7 +25,7 @@ const AboutMe = () => {
       </div>
       <Logo
         className="mt-2 rounded-full bg-terciary-color"
-        imagePath={"src/assets/ImagenPortrait.webp"}
+        imagePath={"public/ImagenPortrait.webp"}
         description="Photo of Gabriel"
       />
     </div>

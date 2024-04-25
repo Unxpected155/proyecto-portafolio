@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="flex items-center justify-between gap-6 border-t border-gray-200 bg-white px-10 py-6 shadow-md">
       <div className="flex items-center gap-6">
         <img
-          src="src/assets/logo_porras_azul.webp"
+          src="public/logo_porras_azul.webp"
           alt="Developer's logo"
           className="size-16 transform transition duration-300 hover:scale-150 md:size-24"
         />

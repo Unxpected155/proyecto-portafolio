@@ -14,77 +14,77 @@ import { useTranslation } from "react-i18next";
 const technologies = [
   {
     title: "HTML/CSS",
-    image: "src/assets/technologies/htmlcss.webp",
+    image: "public/technologies/htmlcss.webp",
     color: "#E44D26",
   },
   {
     title: "AWS",
-    image: "src/assets/technologies/aws.webp",
+    image: "public/technologies/aws.webp",
     color: "#223040",
   },
   {
     title: "React JS",
-    image: "src/assets/technologies/reactjs.webp",
+    image: "public/technologies/reactjs.webp",
     color: "#119FCB",
   },
   {
     title: "AngularJS",
-    image: "src/assets/technologies/angular.webp",
+    image: "public/technologies/angular.webp",
     color: "#A60903",
   },
   {
     title: "SvelteKit",
-    image: "src/assets/technologies/sveltekit.webp",
+    image: "public/technologies/sveltekit.webp",
     color: "#FF3E00",
   },
   {
     title: "ExpressJS",
-    image: "src/assets/technologies/expressjs.webp",
+    image: "public/technologies/expressjs.webp",
     color: "#F1C310",
   },
   {
     title: "NodeJS",
-    image: "src/assets/technologies/nodejs.webp",
+    image: "public/technologies/nodejs.webp",
     color: "#67A062",
   },
   {
     title: "Oracle",
-    image: "src/assets/technologies/oracledb.webp",
+    image: "public/technologies/oracledb.webp",
     color: "#EE1C24",
   },
   {
     title: "MySQL",
-    image: "src/assets/technologies/mysql.webp",
+    image: "public/technologies/mysql.webp",
     color: "#016189",
   },
   {
     title: "Mongo DB",
-    image: "src/assets/technologies/mongodb.webp",
+    image: "public/technologies/mongodb.webp",
     color: "#4FA940",
   },
   {
     title: "Firebase",
-    image: "src/assets/technologies/firebase.webp",
+    image: "public/technologies/firebase.webp",
     color: "#FFCB2D",
   },
   {
     title: "TypeScript",
-    image: "src/assets/technologies/typescript.webp",
+    image: "public/technologies/typescript.webp",
     color: "#3279C7",
   },
   {
     title: "Java",
-    image: "src/assets/technologies/java.webp",
+    image: "public/technologies/java.webp",
     color: "#5482A2",
   },
   {
     title: "C#",
-    image: "src/assets/technologies/csharp.webp",
+    image: "public/technologies/csharp.webp",
     color: "#A279DD",
   },
   {
     title: "C++",
-    image: "src/assets/technologies/cplus.webp",
+    image: "public/technologies/cplus.webp",
     color: "#659AD1",
   },
 ];

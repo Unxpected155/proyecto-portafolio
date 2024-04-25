@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { LuAlignRight } from "react-icons/lu";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const NavLinks = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Link
@@ -15,7 +18,7 @@ const NavLinks = () => {
         offset={-50}
         duration={500}
       >
-        About Me
+        {t("nav.aboutMe")}
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
@@ -25,7 +28,7 @@ const NavLinks = () => {
         offset={50}
         duration={500}
       >
-        Projects
+        {t("nav.projects")}
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
@@ -34,7 +37,7 @@ const NavLinks = () => {
         smooth={true}
         duration={500}
       >
-        Technologies
+        {t("nav.technologies")}
       </Link>
       <Link
         className="transform font-title transition duration-300 hover:scale-110 hover:text-secondary-color"
@@ -44,7 +47,7 @@ const NavLinks = () => {
         offset={50}
         duration={500}
       >
-        Contact Me
+        {t("nav.contactMe")}
       </Link>
     </>
   );

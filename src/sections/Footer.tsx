@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, MessageCircleMore } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-between gap-6 border-t border-gray-200 bg-white px-10 py-6 shadow-md">
       <div className="flex items-center gap-6">
@@ -11,10 +13,8 @@ const Footer = () => {
           className="size-16 transform transition duration-300 hover:scale-150 md:size-24"
         />
       </div>
-      <div className="flex flex-col md:flex-row md:gap-10 md:text-xl">
-        <p className="font-body font-semibold opacity-85">
-          Full-stack Software Engineer
-        </p>
+      <div className="flex flex-col gap-4 md:flex-row md:gap-10 md:text-xl">
+        <p className="font-body font-semibold opacity-85">{t("occupation")}</p>
         <p className="font-body font-semibold opacity-85">
           Gabriel Porras Brenes
         </p>

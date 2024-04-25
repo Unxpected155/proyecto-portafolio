@@ -9,6 +9,7 @@ import {
 
 import Autoplay from "embla-carousel-autoplay";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const technologies = [
   {
@@ -89,10 +90,13 @@ const technologies = [
 ];
 
 const Abilities = () => {
+  const { t } = useTranslation();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   return (
     <div className="flex flex-col items-center justify-center gap-8 py-10">
-      <p className="font-title text-2xl font-bold md:text-5xl">Technologies</p>
+      <p className="font-title text-2xl font-bold md:text-5xl">
+        {t("nav.technologies")}
+      </p>
       <Carousel
         plugins={[
           Autoplay({
@@ -103,7 +107,7 @@ const Abilities = () => {
           align: "start",
           loop: true,
         }}
-        className="w-full max-w-[18rem] md:max-w-xl lg:max-w-4xl"
+        className="w-8/12 max-w-[18rem] md:max-w-xl lg:max-w-4xl "
       >
         <CarouselContent>
           {technologies.map((tech, index) => (

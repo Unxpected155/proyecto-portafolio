@@ -24,7 +24,7 @@ const Header = () => {
         <Logo
           className="size-16 transform transition duration-300 hover:scale-150"
           description="Author's logo"
-          imagePath={"public/logo_gabo_azul.webp"}
+          imagePath={"/logo_gabo_azul.webp"}
         ></Logo>
       </div>
       <div className="flex items-center space-x-2">

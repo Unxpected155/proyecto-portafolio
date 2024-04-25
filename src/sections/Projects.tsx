@@ -74,7 +74,7 @@ const Projects = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      <p className="font-title text-4xl font-bold text-black">
+      <p className="font-title text-4xl font-bold text-white">
         {t("nav.projects")}
       </p>
       <Carousel

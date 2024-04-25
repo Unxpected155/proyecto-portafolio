@@ -54,7 +54,7 @@ i18n
           cv: "Curriculum ",
           nav: {
             aboutMe: "Sobre mí",
-            projects: "Projectos",
+            projects: "Proyectos",
             technologies: "Tecnologías",
             contactMe: "Contáctame",
           },

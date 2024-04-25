@@ -74,7 +74,7 @@ const Projects = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      <p className="font-title text-4xl font-bold text-white">
+      <p className="font-title text-4xl font-bold text-black">
         {t("nav.projects")}
       </p>
       <Carousel
@@ -127,18 +127,20 @@ const Projects = () => {
                           </button>
                         )}
                       </div>
-                      <motion.button
+                      <motion.a
                         whileHover={{ scale: 1.1 }}
                         transition={{
                           type: "spring",
                           stiffness: 400,
                           damping: 10,
                         }}
+                        target="_blank"
+                        href={project.repository}
                         className="flex max-w-[50%] justify-center gap-5 self-center rounded-full bg-terciary-color p-4 text-white"
                       >
                         <Code />
                         {isMobile ? "" : t("repository")}
-                      </motion.button>
+                      </motion.a>
                     </div>
                   </CardContent>
                 </Card>

@@ -20,7 +20,7 @@ const App = () => {
         </section>
         <section
           id="projects"
-          className="bg-[url(src/assets/software.webp)] bg-cover bg-center bg-no-repeat py-10"
+          className="bg-[url(/software.webp)] bg-cover bg-center bg-no-repeat py-10"
         >
           <Projects />
         </section>
